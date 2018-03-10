@@ -12,6 +12,7 @@ fastcgi_pass php-handler;
 fastcgi_split_path_info ^(.+\.php)(/.*)$;
 fastcgi_index index.php;
 fastcgi_intercept_errors on;
+fastcgi_keep_conn on;
 
 if (!-f $document_root$fastcgi_script_name) {
 	return 404;

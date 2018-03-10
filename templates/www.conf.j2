@@ -5,7 +5,7 @@ listen = /var/run/php/php{{ php_ver}}-fpm.sock
 listen.group = www-data
 
 pm = ondemand
-pm.max_children = 10
+pm.max_children = 16
 pm.process_idle_timeout = 20s
 pm.max_requests = 200
 

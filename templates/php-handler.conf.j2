@@ -1,3 +1,4 @@
 upstream php-handler {
 	server unix:/var/run/php/php{{ php_ver }}-fpm.sock;
+	keepalive 16;
 }
