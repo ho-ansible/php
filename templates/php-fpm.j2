@@ -21,4 +21,3 @@ if (!-f $document_root$fastcgi_script_name) {
 include fastcgi_params;
 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 fastcgi_param PATH_INFO $fastcgi_path_info;
-fastcgi_param modHeadersAvailable true;         #Avoid sending security headers twice
