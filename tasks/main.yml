@@ -22,6 +22,7 @@
   - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/" }
   - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/" }
   - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/" }
+  - { src: logrotate.conf, dest: "/etc/logrotate.d/php{{ php_ver }}-fpm" }
   notify: restart php-fpm
 
 - name: PHP-FPM | service
