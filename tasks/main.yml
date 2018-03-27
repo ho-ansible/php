@@ -15,13 +15,13 @@
   - config
   template:
     src: "{{ item.src }}.j2"
-    dest: "{{ item.dest }}/{{ item.src }}"
+    dest: "{{ item.dest }}"
   with_items:
-  - { src: php-fpm, dest: /etc/nginx }
-  - { src: php-handler.conf, dest: /etc/nginx/conf.d }
-  - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/" }
-  - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/" }
-  - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/" }
+  - { src: php-fpm, dest: /etc/nginx/php-fpm }
+  - { src: php-handler.conf, dest: /etc/nginx/conf.d/php-handler.conf }
+  - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/php.ini" }
+  - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/php-fpm.conf" }
+  - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/www.conf" }
   - { src: logrotate.conf, dest: "/etc/logrotate.d/php{{ php_ver }}-fpm" }
   notify: restart php-fpm
 
