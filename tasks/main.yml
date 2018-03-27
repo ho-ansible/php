@@ -15,15 +15,21 @@
   - config
   template:
     src: "{{ item.src }}.j2"
-    dest: "{{ item.dest }}"
+    dest: "{{ item.dest }}/{{ item.src }}"
   with_items:
-  - { src: php-fpm, dest: /etc/nginx/php-fpm }
-  - { src: php-handler.conf, dest: /etc/nginx/conf.d/php-handler.conf }
-  - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/php.ini" }
-  - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/php-fpm.conf" }
-  - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/www.conf" }
-  - { src: logrotate.conf, dest: "/etc/logrotate.d/php{{ php_ver }}-fpm" }
+  - { src: php-fpm, dest: /etc/nginx/ }
+  - { src: php-handler.conf, dest: /etc/nginx/conf.d/ }
+  - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/" }
+  - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/" }
+  - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/" }
   notify: restart php-fpm
+
+- name: PHP-FPM | logrotate
+  tags:
+    - logrotate
+  copy:
+    dest: "/etc/logrotate.d/php{{ php_ver }}-fpm"
+    content: "/var/log/php{{ php_ver }}-fpm.log {}"
 
 - name: PHP-FPM | service
   tags:
