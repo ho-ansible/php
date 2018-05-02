@@ -2,13 +2,11 @@
 
 - name: PHP-FPM | packages
   tags:
-  - package
+    - package
   package:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-  - php-fpm
-  - php-sqlite3
+    name: 
+      - php-fpm
+      - php-sqlite3
 
 - name: PHP-FPM | config
   tags:
