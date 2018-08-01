@@ -21,8 +21,10 @@ register_argc_argv = Off
 magic_quotes_gpc = Off
 enable_dl = Off
 
+opcache.enable_cli=1
 opcache.memory_consumption=128
 opcache.interned_strings_buffer=8
+opcache.max_accelerated_files=10000
 opcache.revalidate_freq=10
 opcache.validate_permission=1
 opcache.validate_root=1
