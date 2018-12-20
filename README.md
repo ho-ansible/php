@@ -19,7 +19,7 @@ None.
 ```
 
 ## License
-MIT
+Ansible role is licensed MIT
 
 ## Author Information
 Sean Ho, https://github.com/ho-ansible/
