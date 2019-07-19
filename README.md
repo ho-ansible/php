@@ -5,6 +5,7 @@ Installs the PHP runtime and PHP-FPM FastCGI module for Nginx webserver.
 Only tested on Debian stable, for now.
 
 ## Role Variables
++ `php_ver`: version string for Debian package
 
 ## Dependencies
 None.
@@ -18,7 +19,7 @@ None.
 ```
 
 ## License
-MIT
+Ansible role is licensed MIT
 
 ## Author Information
 Sean Ho, https://github.com/ho-ansible/
