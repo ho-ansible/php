@@ -1,6 +1,10 @@
 # Ansible role: php
 Installs the PHP runtime and PHP-FPM FastCGI module for Nginx webserver.
 
+## DEPRECATED
+Installation of this app has been moved to kubernetes,
+so this ansible role is no longer maintained.
+
 ## Requirements
 Only tested on Debian stable, for now.
 
