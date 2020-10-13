@@ -6,25 +6,20 @@ Installation of this app has been moved to kubernetes,
 so this ansible role is no longer maintained.
 
 ## Requirements
-Only tested on Debian stable, for now.
+Only tested on Debian buster.
 
 ## Role Variables
 + `php_ver`: version string for Debian package
 
+## Playbooks
++ `main.yml`: apply role
++ `uninstall.yml`: remove. Run before removing config from inventory.
+
 ## Dependencies
 None.
 
-## Example Playbook
-
-```
-- hosts: php
-  roles:
-    - { role: ho-ansible.php }
-```
-
 ## License
-Ansible role is licensed MIT
++ Ansible role licensed [MIT](LICENSE)
 
 ## Author Information
-Sean Ho, https://github.com/ho-ansible/
-
++ Ansible role by [Sean Ho](https://github.com/ho-ansible/)
