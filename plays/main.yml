@@ -1,10 +1,10 @@
 #! /usr/bin/env ansible-playbook
 # Configure template role
-# Replace 'all' with your own inventory group
+# Replace 'php' with your own inventory group
 ---
-- name: template | template role
-  hosts: all
+- name: php-fpm | web app server
+  hosts: php
   roles:
-  - role: template
+  - role: php
     tags:
-    - template
+    - php
