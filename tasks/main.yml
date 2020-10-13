@@ -2,11 +2,11 @@
 
 - name: PHP-FPM | packages
   tags:
-    - package
+  - package
   package:
     name: 
-      - php-fpm
-      - php-sqlite3
+    - php-fpm
+    - php-sqlite3
 
 - name: PHP-FPM | config
   tags:
@@ -15,16 +15,16 @@
     src: "{{ item.src }}.j2"
     dest: "{{ item.dest }}/{{ item.src }}"
   loop:
-    - { src: php-fpm, dest: /etc/nginx/ }
-    - { src: php-handler.conf, dest: /etc/nginx/conf.d/ }
-    - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/" }
-    - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/" }
-    - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/" }
+  - { src: php-fpm, dest: /etc/nginx/ }
+  - { src: php-handler.conf, dest: /etc/nginx/conf.d/ }
+  - { src: php.ini, dest: "/etc/php/{{ php_ver }}/fpm/" }
+  - { src: php-fpm.conf, dest: "/etc/php/{{ php_ver }}/fpm/" }
+  - { src: www.conf, dest: "/etc/php/{{ php_ver }}/fpm/pool.d/" }
   notify: restart php-fpm
 
 - name: PHP-FPM | logrotate
   tags:
-    - logrotate
+  - logrotate
   copy:
     dest: "/etc/logrotate.d/php{{ php_ver }}-fpm"
     content: "/var/log/php{{ php_ver }}-fpm.log {}"
