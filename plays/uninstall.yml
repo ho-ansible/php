@@ -1,0 +1,12 @@
+#! /usr/bin/env ansible-playbook
+# Uninstall php-fpm application server
+# Replace 'php' with your own inventory group
+---
+- name: php-fpm | uninstall
+  hosts: php
+  tasks:
+  - include_role:
+      name: php
+      tasks_from: uninstall.yml
+    tags:
+    - php

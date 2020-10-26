@@ -1,0 +1,24 @@
+---
+
+- name: php-fpm | stop service
+  service:
+    name: "php{{ php_ver }}-fpm"
+    state: stopped
+    enabled: no
+
+- name: php-fpm | remove config
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+  - /etc/nginx/php-fpm
+  - /etc/nginx/conf.d/php-handler.conf
+  - /etc/php/{{ php_ver }}/fpm
+  - /etc/logrotate.d/php{{ php_ver }}-fpm
+
+- name: php-fpm | uninstall packages
+  package:
+    state: absent
+    name: 
+    - php-fpm
+    - php-sqlite3
