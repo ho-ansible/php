@@ -3,7 +3,7 @@
 # Replace 'php' with your own inventory group
 ---
 - name: php-fpm | web app server
-  hosts: php
+  hosts: all
   roles:
   - role: php
     tags:
