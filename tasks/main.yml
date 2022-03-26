@@ -37,3 +37,11 @@
     name: "php{{ php_ver }}-fpm"
     state: started
     enabled: yes
+
+- name: PHP-FPM | enable cleanup
+  tags:
+  - service
+  systemd:
+    name: phpsessionclean.timer
+    enabled: yes
+
